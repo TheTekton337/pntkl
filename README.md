@@ -1,79 +1,58 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# pntkl - React Native Application Builder
 
-# Getting Started
-
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
-
-## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+```
+      ╱╲
+ ═───╱──╲───═
+  `─╱    ╲─'
+   ╱ `,.' ╲
+  ╱,─'  '─.╲
+  '        `
 ```
 
-## Step 2: Start your Application
+## Overview
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+**pntkl** is a React Native application that empowers users to create their own React Native applications within the app itself. Users can either upload their existing source code or leverage the in-app code editor to build their mobile applications seamlessly.
 
-### For Android
+## Features
+
+- **Code Upload**: Users can upload their existing React Native source code directly into the application.
+
+- **In-App Code Editor**: The application provides an integrated code editor powered by React Monaco Editor. Users can create and edit their React Native code within the app.
+
+- **Cross-Platform Development**: Build and test applications on both Android and iOS devices.
+
+- **React Native WebView Integration**: The in-app code editor is loaded through a React web application using React Monaco Editor, facilitating a smooth development experience.
+
+## Installation
 
 ```bash
-# using npm
-npm run android
+# Clone the repository
+git clone https://github.com/TheTekton337/pntkl.git
 
-# OR using Yarn
-yarn android
+# Navigate to the project folder
+cd pntkl
+
+# Install dependencies
+npm install
 ```
 
-### For iOS
+## Usage
 
-```bash
-# using npm
-npm run ios
+1. Open the project in your preferred code editor.
+2. Launch the application on an Android or iOS emulator or a physical device.
 
-# OR using Yarn
-yarn ios
-```
+## Dependencies
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+- React Native
+- React Monaco Editor
+- React Native WebView
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## Contributing
 
-## Step 3: Modifying your App
+Feel free to contribute to the project by opening issues or submitting pull requests. Follow the [CONTRIBUTING.md](CONTRIBUTING.md) guidelines.
 
-Now that you have successfully run the app, let's modify it.
+## License
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+This project is licensed under a dual APGL 3.0 and Commercial License - see the [LICENSE.md](LICENSE.md) file for details.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Happy coding with pntkl! 🚀
