@@ -1,48 +1,58 @@
 import React, {useRef} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Alert} from 'react-native';
 import {WebView, WebViewMessageEvent} from 'react-native-webview';
+import ConsoleFABModal from './ConsoleModal';
 
 interface CodeEditorWebViewProps {}
 
 const CodeEditorWebView: React.FC<CodeEditorWebViewProps> = () => {
   const webViewRef = useRef<WebView>(null);
 
-  const onMessage = (event: WebViewMessageEvent) => {
-    const data = JSON.parse(event.nativeEvent.data);
+  const consoleMessagesRef = useRef<ConsoleMessage[]>([]);
 
-    // Handle incoming messages from the webview
-    if (data.type === 'EDITOR_EVENT') {
-      // Handle events from the code editor
-      console.log('Received editor event:', data.payload);
-    }
+  const updateConsoleMessages = (newMessage: ConsoleMessage) => {
+    consoleMessagesRef.current = [...consoleMessagesRef.current, newMessage];
   };
 
-  // Define the JavaScript code to inject into the webview for communication
-  const injectedJavaScript = `
-    // Set up a listener for events in the code editor
-    window.addEventListener('YOUR_EDITOR_EVENT', function(event) {
-      // Send the event data to React Native
-      window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'EDITOR_EVENT', payload: event.detail }));
-    });
+  const onMessage = (event: WebViewMessageEvent) => {
+    const message = JSON.parse(event.nativeEvent.data);
+    const {type, payload} = message;
 
-    // Expose a function to be called by React Native
-    window.setEditorContent = function(content) {
-      // Set the content in the code editor
-      // Example: editor.setValue(content);
-    };
-
-    // Other initialization or communication logic...
-  `;
+    switch (type) {
+      case 'editorContentChange':
+        updateConsoleMessages({
+          message: 'Editor content changed:',
+          data: payload,
+        });
+        break;
+      // Handle other message types as needed
+      default:
+        console.error('Received unknown message type:', type);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <WebView
         ref={webViewRef}
-        source={{uri: 'http://localhost:3370'}}
-        style={{flex: 1}}
+        source={{
+          uri: 'http://192.168.0.146:3370',
+        }}
+        style={styles.container}
         onMessage={onMessage}
-        injectedJavaScript={injectedJavaScript}
+        startInLoadingState={false}
+        onError={event => {
+          // TODO: Improve error handling and display.
+          Alert.alert('WebView Error', JSON.stringify(Object.keys(event)));
+        }}
+        onLoad={() => {
+          // TODO: Setup debug logging.
+          console.log('WebView Loaded');
+        }}
+        overScrollMode="never"
+        showsVerticalScrollIndicator={false}
       />
+      <ConsoleFABModal getConsoleMessages={() => consoleMessagesRef.current} />
     </View>
   );
 };
