@@ -8,17 +8,19 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
+    "rtn-install": "yarn && yarn pod-install",
     "pod-install": "npm run pod-install-turbo",
     "pod-install-turbo": "cd ios && RCT_NEW_ARCH_ENABLED=1 bundle exec pod install",
     "pod-install-legacy": "cd ios && RCT_NEW_ARCH_ENABLED=0 bundle exec pod install"
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.73.5",
+    "react-native": "0.73.6",
     "react-native-paper": "^5.12.3",
     "react-native-safe-area-context": "^4.9.0",
     "react-native-vector-icons": "^10.0.3",
-    "react-native-webview": "^13.8.1"
+    "react-native-webview": "^13.8.1",
+    "rtn-pntkl-shell": "../rtn-pntkl-shell"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -35,7 +37,7 @@
     "babel-jest": "^29.6.3",
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
-    "prettier": "^2.8.8",
+    "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
     "typescript": "5.0.4"
   },
